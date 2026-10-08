@@ -1,0 +1,6 @@
+# Copy this file to key.properties (same folder) and fill in your own passwords.
+# key.properties and the .jks file must NEVER be shared, uploaded or committed.
+storePassword=1x9ma28w
+keyPassword=1x9ma28w
+keyAlias=upload
+storeFile=C:/Users/HP/sanad-keys/sanad-upload.jks

@@ -1,0 +1,58 @@
+rules_version = '2';
+
+// Sanad (سند) — Firestore security rules
+// - The youth app can only ADD anonymous check-ins with the exact allowed fields. No reading, editing or deleting.
+// - Institutions sign in (Firebase Authentication). Each account needs a document /institutions/{uid}
+//   with: name (string), scope ("all" | "university" | "city"), value (university or city id).
+//   An institution can only read check-ins inside its scope.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function institution() {
+      return get(/databases/$(database)/documents/institutions/$(request.auth.uid)).data;
+    }
+
+    function isInstitution() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/institutions/$(request.auth.uid));
+    }
+
+    function shortString(v) {
+      return v is string && v.size() <= 40;
+    }
+
+    function validCheckin(d) {
+      return d.keys().hasOnly(['date', 'status', 'age_group', 'city', 'university', 'level', 'source'])
+        && d.keys().hasAll(['date', 'status', 'age_group', 'city', 'university', 'level', 'source'])
+        && d.date is timestamp
+        && d.date > request.time - duration.value(10, 'm')
+        && d.date < request.time + duration.value(10, 'm')
+        && d.level in ['low', 'medium', 'high']
+        && d.source in ['study', 'work', 'money', 'family', 'relationships', 'health', 'other']
+        && shortString(d.status)
+        && shortString(d.age_group)
+        && shortString(d.city)
+        && shortString(d.university);
+    }
+
+    match /checkins/{id} {
+      allow create: if validCheckin(request.resource.data);
+      allow read: if isInstitution() && (
+        institution().scope == 'all'
+        || (institution().scope == 'university' && resource.data.university == institution().value)
+        || (institution().scope == 'city' && resource.data.city == institution().value)
+      );
+      allow update, delete: if false;
+    }
+
+    match /institutions/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false; // managed by the Sanad team from the Firebase console only
+    }
+
+    // Everything else is closed.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

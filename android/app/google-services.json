@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "264926925121",
+    "project_id": "nabd-ai-d3b49",
+    "storage_bucket": "nabd-ai-d3b49.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264926925121:android:2d966f13e5f3d97d6291c0",
+        "android_client_info": {
+          "package_name": "com.mellonTech.sanad"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH8eolxWbitrsIvTiuarbksCLrPGU2eDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
