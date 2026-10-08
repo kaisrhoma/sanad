@@ -5,9 +5,8 @@
 > مشروع فريق سند في الكوداثون الوطني — ملتقى ليبيا للذكاء الاصطناعي Ai4LY 2026.
 > سند أداة دعم وتوجيه، **وليس تشخيصاً طبياً** ولا بديلاً عن المختص.
 
-- العرض التقديمي: `[رابط العرض أو docs/pitch.pdf]`
-- فيديو توضيحي: `[رابط الفيديو]`
-- التقرير التقني المفصل: [`TECHNICAL_REPORT.md`](TECHNICAL_REPORT.md)
+- العرض التقديمي: [`docs/pitch.pdf`](docs/pitch.pdf)
+- التقرير التقني المفصل: [`TECHNICAL_REPORT.md`](TECHNICAL_REPORT.md)، ونسخة PDF مختصرة: [`docs/sanad_report.pdf`](docs/sanad_report.pdf)
 
 ---
 
@@ -134,6 +133,7 @@ firestore.rules              # قواعد أمان Firestore
 | طه | المحتوى والأمان وجهات الدعم |
 | آلاء | Firebase وGoogle Play |
 | شورى | العرض التقديمي والهوية |
+| هناء | اختبار التطبيق |
 
 ## تنبيه
 
