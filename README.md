@@ -5,7 +5,8 @@
 > مشروع فريق سند في الكوداثون الوطني — ملتقى ليبيا للذكاء الاصطناعي Ai4LY 2026.
 > سند أداة دعم وتوجيه، **وليس تشخيصاً طبياً** ولا بديلاً عن المختص.
 
-- العرض التقديمي: [`docs/pitch.pdf`](docs/pitch.pdf)
+- العرض التقديمي: [`docs/pitch.pdf`](docs/pitch.pdf) (والملف الأصلي [`docs/pitch.pptx`](docs/pitch.pptx))
+- التقرير النهائي (الشرح الكامل والخطط المستقبلية): [`docs/sanad_final_report.pdf`](docs/sanad_final_report.pdf)
 - التقرير التقني المفصل: [`TECHNICAL_REPORT.md`](TECHNICAL_REPORT.md)، ونسخة PDF مختصرة: [`docs/sanad_report.pdf`](docs/sanad_report.pdf)
 
 ---
